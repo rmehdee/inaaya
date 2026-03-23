@@ -90,6 +90,7 @@ hr {
   position: relative;
   width: 110px;
   height: 210px;
+  cursor: pointer;
 }
 
 .girl-hair {
@@ -607,6 +608,7 @@ hr {
   position: relative;
   width: 90px;
   height: 130px;
+  cursor: pointer;
   animation: babyBounce 1.5s ease-in-out infinite alternate;
 }
 
@@ -990,6 +992,31 @@ playBtn.addEventListener('click', function() {
     allBtns.forEach(b => b.classList.remove('pop'));
     if (audioCtx) { audioCtx.close(); audioCtx = null; }
   }, elapsed + 200);
+});
+
+// Character click sounds
+document.querySelector('.girl').addEventListener('click', function() {
+  synth.cancel();
+  const utter = new SpeechSynthesisUtterance('Hi!');
+  utter.rate = 1.0;
+  utter.pitch = 1.4;
+  synth.speak(utter);
+});
+
+document.querySelector('.baby').addEventListener('click', function() {
+  synth.cancel();
+  const utter = new SpeechSynthesisUtterance('goo goo ga ga');
+  utter.rate = 0.9;
+  utter.pitch = 1.6;
+  synth.speak(utter);
+});
+
+document.querySelector('.puppy').addEventListener('click', function() {
+  synth.cancel();
+  const utter = new SpeechSynthesisUtterance('woof woof');
+  utter.rate = 1.0;
+  utter.pitch = 0.8;
+  synth.speak(utter);
 });
 
 // Individual letter buttons
