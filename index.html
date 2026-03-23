@@ -1550,8 +1550,8 @@ document.querySelector('.daddy').addEventListener('click', function() {
 document.querySelector('.mommy').addEventListener('click', function() {
   synth.cancel();
   const utter = new SpeechSynthesisUtterance('I love you all!');
-  utter.rate = 0.9;
-  utter.pitch = 1.3;
+  utter.rate = 1.0;
+  utter.pitch = 1.8;
   synth.speak(utter);
 });
 
