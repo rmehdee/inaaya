@@ -487,11 +487,52 @@ hr {
   100% { transform: rotate(-15deg) scaleY(0.8); }
 }
 
+/* ========== TABS ========== */
+.tabs-container {
+  width: 100%;
+  max-width: 700px;
+  padding: 20px 20px 30px;
+}
+
+.tab-bar {
+  display: flex;
+  gap: 0;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.1);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
+  color: rgba(255,255,255,0.5);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tab-btn.active {
+  color: white;
+  background: linear-gradient(135deg, #ff6b6b, #a66cff, #45b7d1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
 /* ========== ALPHABET BUTTONS ========== */
 .alphabet-section {
   width: 100%;
-  max-width: 700px;
-  padding: 30px 20px;
 }
 
 .alphabet-grid {
@@ -592,6 +633,74 @@ hr {
   0%   { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
   100% { transform: scale(1.06); box-shadow: 0 6px 18px rgba(166,108,255,0.4); }
 }
+
+/* ========== TIC TAC TOE ========== */
+.ttt-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ttt-status {
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffd93d;
+  text-align: center;
+  margin-bottom: 15px;
+  min-height: 30px;
+}
+
+.ttt-board {
+  display: grid;
+  grid-template-columns: repeat(3, 90px);
+  grid-template-rows: repeat(3, 90px);
+  gap: 8px;
+}
+
+.ttt-cell {
+  width: 90px;
+  height: 90px;
+  background: rgba(255,255,255,0.1);
+  border: 3px solid rgba(255,255,255,0.2);
+  border-radius: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ttt-cell:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.ttt-cell.x { color: #ff6b6b; }
+.ttt-cell.o { color: #45b7d1; }
+.ttt-cell.win { background: rgba(255,215,61,0.3); border-color: #ffd93d; }
+
+.ttt-reset {
+  margin-top: 15px;
+  padding: 10px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
+  color: white;
+  background: linear-gradient(135deg, #ff6b6b, #a66cff);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+
+.ttt-reset:hover { transform: scale(1.08); }
+.ttt-reset:active { transform: scale(0.96); }
 
 /* ========== BABY (HAMZA) ========== */
 .baby-column {
@@ -1421,10 +1530,27 @@ hr {
   </div>
 </div>
 
-<!-- Alphabet Buttons -->
-<div class="alphabet-section">
-  <button class="play-btn" id="playBtn">&#9654; Sing ABC</button>
-  <div class="alphabet-grid" id="alphabetGrid"></div>
+<!-- Tabs -->
+<div class="tabs-container">
+  <div class="tab-bar">
+    <button class="tab-btn active" data-tab="abc">Sing ABC</button>
+    <button class="tab-btn" data-tab="ttt">Tic Tac Toe</button>
+  </div>
+
+  <div class="tab-content active" id="tab-abc">
+    <div class="alphabet-section">
+      <button class="play-btn" id="playBtn">&#9654; Sing ABC</button>
+      <div class="alphabet-grid" id="alphabetGrid"></div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="tab-ttt">
+    <div class="ttt-section">
+      <div class="ttt-status" id="tttStatus">Your turn! (X)</div>
+      <div class="ttt-board" id="tttBoard"></div>
+      <button class="ttt-reset" id="tttReset">Play Again</button>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -1561,6 +1687,82 @@ document.querySelector('.mommy').addEventListener('click', function() {
   utter.pitch = 1.1;
   synth.speak(utter);
 });
+
+// Tab switching
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    this.classList.add('active');
+    document.getElementById('tab-' + this.dataset.tab).classList.add('active');
+  });
+});
+
+// ========== TIC TAC TOE ==========
+const tttBoard = document.getElementById('tttBoard');
+const tttStatus = document.getElementById('tttStatus');
+const tttReset = document.getElementById('tttReset');
+let board = Array(9).fill('');
+let currentPlayer = 'X';
+let gameOver = false;
+
+const winPatterns = [
+  [0,1,2],[3,4,5],[6,7,8],
+  [0,3,6],[1,4,7],[2,5,8],
+  [0,4,8],[2,4,6]
+];
+
+function createBoard() {
+  tttBoard.innerHTML = '';
+  board = Array(9).fill('');
+  currentPlayer = 'X';
+  gameOver = false;
+  tttStatus.textContent = 'Your turn! (X)';
+  for (let i = 0; i < 9; i++) {
+    const cell = document.createElement('button');
+    cell.className = 'ttt-cell';
+    cell.dataset.index = i;
+    cell.addEventListener('click', handleCellClick);
+    tttBoard.appendChild(cell);
+  }
+}
+
+function checkWin(player) {
+  for (const pattern of winPatterns) {
+    if (pattern.every(i => board[i] === player)) return pattern;
+  }
+  return null;
+}
+
+function handleCellClick(e) {
+  if (gameOver) return;
+  const idx = parseInt(e.target.dataset.index);
+  if (board[idx]) return;
+
+  board[idx] = currentPlayer;
+  e.target.textContent = currentPlayer;
+  e.target.classList.add(currentPlayer.toLowerCase());
+
+  const winPattern = checkWin(currentPlayer);
+  if (winPattern) {
+    gameOver = true;
+    tttStatus.textContent = currentPlayer + ' wins!';
+    winPattern.forEach(i => tttBoard.children[i].classList.add('win'));
+    return;
+  }
+
+  if (board.every(c => c)) {
+    gameOver = true;
+    tttStatus.textContent = "It's a tie!";
+    return;
+  }
+
+  currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+  tttStatus.textContent = 'Your turn! (' + currentPlayer + ')';
+}
+
+tttReset.addEventListener('click', createBoard);
+createBoard();
 
 // Individual letter buttons
 for (let i = 65; i <= 90; i++) {
