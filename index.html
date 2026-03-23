@@ -1270,7 +1270,7 @@ hr {
   .puppy .body { transform: scale(0.6); transform-origin: bottom center; }
   .family-group { gap: 0; margin: 0 -10px; }
   .daddy-column { margin-left: -20px; }
-  .mommy-column { margin-right: -20px; }
+  .mommy-column { margin-right: -10px; }
   .daddy-label, .mommy-label, .puppy-label, .baby-label { font-size: 12px; }
   .alpha-btn { width: 40px; height: 40px; font-size: 16px; }
   .alphabet-grid { grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); }
@@ -1518,8 +1518,8 @@ playBtn.addEventListener('click', function() {
 document.querySelector('.girl').addEventListener('click', function() {
   synth.cancel();
   const utter = new SpeechSynthesisUtterance('Hi, I am Inaya');
-  utter.rate = 1.0;
-  utter.pitch = 1.4;
+  utter.rate = 1.2;
+  utter.pitch = 2.0;
   synth.speak(utter);
 });
 
@@ -1550,8 +1550,8 @@ document.querySelector('.daddy').addEventListener('click', function() {
 document.querySelector('.mommy').addEventListener('click', function() {
   synth.cancel();
   const utter = new SpeechSynthesisUtterance('I love you all!');
-  utter.rate = 1.0;
-  utter.pitch = 1.8;
+  utter.rate = 0.9;
+  utter.pitch = 1.1;
   synth.speak(utter);
 });
 
