@@ -21,7 +21,7 @@ h1 {
   font-size: clamp(40px, 10vw, 90px);
   text-align: center;
   padding: 30px 0 10px;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
   background: linear-gradient(90deg, #ff6b9d, #c84bfa, #6dd5fa, #ff6b9d);
   background-size: 300% 100%;
   -webkit-background-clip: text;
@@ -75,7 +75,7 @@ hr {
 }
 
 .puppy-label {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
   font-size: 22px;
   font-weight: bold;
   color: #ffd9a0;
@@ -270,7 +270,7 @@ hr {
   border: 2px solid #ff69b4;
   border-radius: 15px;
   padding: 5px 12px;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
   font-size: 14px;
   font-weight: bold;
   color: #ff1493;
@@ -507,7 +507,7 @@ hr {
   color: white;
   cursor: pointer;
   transition: transform 0.15s, box-shadow 0.15s;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
   box-shadow: 0 4px 6px rgba(0,0,0,0.15);
 }
 
@@ -565,7 +565,7 @@ hr {
   padding: 12px 30px;
   font-size: 20px;
   font-weight: bold;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
   color: white;
   background: linear-gradient(135deg, #ff6b6b, #a66cff, #45b7d1);
   border: none;
@@ -599,7 +599,7 @@ hr {
 }
 
 .baby-label {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
   font-size: 20px;
   font-weight: bold;
   color: #a0d8ef;
@@ -790,7 +790,7 @@ hr {
   border: 2px solid #87ceeb;
   border-radius: 15px;
   padding: 4px 10px;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
   font-size: 12px;
   font-weight: bold;
   color: #45b7d1;
@@ -819,7 +819,7 @@ hr {
 }
 
 .daddy-label {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
   font-size: 22px;
   font-weight: bold;
   color: #7eb8da;
@@ -1025,7 +1025,7 @@ hr {
   border: 2px solid #4a90d9;
   border-radius: 15px;
   padding: 5px 12px;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
   font-size: 13px;
   font-weight: bold;
   color: #4a90d9;
@@ -1054,7 +1054,7 @@ hr {
 }
 
 .mommy-label {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
   font-size: 22px;
   font-weight: bold;
   color: #f0a0c0;
@@ -1238,7 +1238,7 @@ hr {
   border: 2px solid #e84393;
   border-radius: 15px;
   padding: 5px 12px;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
   font-size: 13px;
   font-weight: bold;
   color: #e84393;
@@ -1260,18 +1260,12 @@ hr {
 
 /* Responsive: stack on small screens */
 @media (max-width: 600px) {
-  .columns { flex-wrap: nowrap; gap: 0; padding: 0; justify-content: space-between; }
-  .column { min-width: unset; }
+  .columns { flex-wrap: nowrap; gap: 0; padding: 0 5px; justify-content: center; overflow: hidden; }
+  .column { min-width: unset; flex-shrink: 1; }
   h1 { font-size: 36px; padding: 15px 0 5px; }
-  .daddy { transform: scale(0.45); transform-origin: bottom center; }
-  .girl { transform: scale(0.45); transform-origin: bottom center; }
-  .baby { transform: scale(0.4); transform-origin: bottom center; }
-  .mommy { transform: scale(0.45); transform-origin: bottom center; }
-  .puppy .body { transform: scale(0.6); transform-origin: bottom center; }
-  .family-group { gap: 0; }
-  .daddy-column { margin-left: 0; }
-  .mommy-column { margin-right: 0; }
-  .daddy-label, .mommy-label, .puppy-label, .baby-label { font-size: 12px; }
+  .daddy-column, .mommy-column, .column-puppy { transform: scale(0.5); transform-origin: bottom center; }
+  .family-group { transform: scale(0.5); transform-origin: bottom center; gap: 0; }
+  .daddy-label, .mommy-label, .puppy-label, .baby-label { font-size: 14px; }
   .alpha-btn { width: 40px; height: 40px; font-size: 16px; }
   .alphabet-grid { grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); }
 }
