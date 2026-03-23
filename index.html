@@ -1948,8 +1948,8 @@ function computerMove() {
   if (gameOver) return;
   const empty = board.map((v,i) => v ? -1 : i).filter(i => i >= 0);
   if (!empty.length) return;
-  // 70% of the time just play randomly (easy mode)
-  if (Math.random() < 0.7) {
+  // 30% of the time just play randomly (medium mode)
+  if (Math.random() < 0.3) {
     return empty[Math.floor(Math.random() * empty.length)];
   }
   // 30% of the time try to win or block
