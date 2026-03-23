@@ -923,18 +923,24 @@ let audioCtx = null;
 const C4=261.63, D4=293.66, E4=329.63, F4=349.23, G4=392.00, A4=440.00, B4=493.88, C5=523.25;
 
 const abcSong = [
-  // A B C D E F G
-  [0, C4, 400], [1, C4, 400], [2, G4, 400], [3, G4, 400],
-  [4, A4, 400], [5, A4, 400], [6, G4, 800],
-  // H I J K L M N O P
-  [7, F4, 400], [8, F4, 400], [9, E4, 400], [10, E4, 400],
-  [11, D4, 300], [12, D4, 300], [13, D4, 300], [14, D4, 300], [15, C4, 800],
-  // Q R S T U V
-  [16, G4, 400], [17, G4, 400], [18, F4, 400], [19, F4, 400],
-  [20, E4, 400], [21, E4, 400],
-  // W X Y Z
-  [22, D4, 800], [23, G4, 300], [24, G4, 300],
-  [25, F4, 600], [-1, E4, 400], [-1, D4, 800],
+  // A B C D E F G  (Twinkle twinkle little star)
+  [0, C4, 500], [1, C4, 500], [2, G4, 500], [3, G4, 500],
+  [4, A4, 500], [5, A4, 500], [6, G4, 1000],
+  // H I J K  L M N O P  (How I wonder what you are)
+  [7, F4, 500], [8, F4, 500], [9, E4, 500], [10, E4, 500],
+  [11, D4, 250], [12, D4, 250], [13, D4, 250], [14, D4, 250], [15, C4, 1000],
+  // Q R S  T U V  (Up above the world so high)
+  [16, G4, 500], [17, G4, 500], [18, F4, 500], [19, F4, 500],
+  [20, E4, 500], [21, E4, 500], [-1, D4, 1000],
+  // W X  Y and Z  (Like a diamond in the sky)
+  [22, G4, 500], [23, G4, 500], [24, F4, 500], [-1, F4, 500],
+  [25, E4, 500], [-1, E4, 500], [-1, D4, 1000],
+  // Now I know my ABCs  (Twinkle twinkle little star)
+  [-1, C4, 500], [-1, C4, 500], [-1, G4, 500], [-1, G4, 500],
+  [-1, A4, 500], [-1, A4, 500], [-1, G4, 1000],
+  // Next time won't you sing with me  (How I wonder what you are)
+  [-1, F4, 500], [-1, F4, 500], [-1, E4, 500], [-1, E4, 500],
+  [-1, D4, 500], [-1, D4, 500], [-1, C4, 1000],
 ];
 
 function playNote(freq, duration, startTime) {
@@ -1015,28 +1021,12 @@ document.querySelector('.baby').addEventListener('click', function() {
   synth.speak(utter);
 });
 
-function playBark() {
-  const ctx = new (window.AudioContext || window.webkitAudioContext)();
-  function bark(startTime) {
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.type = 'sawtooth';
-    osc.frequency.setValueAtTime(600, startTime);
-    osc.frequency.exponentialRampToValueAtTime(300, startTime + 0.08);
-    osc.frequency.exponentialRampToValueAtTime(150, startTime + 0.15);
-    gain.gain.setValueAtTime(0.4, startTime);
-    gain.gain.exponentialRampToValueAtTime(0.01, startTime + 0.18);
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.start(startTime);
-    osc.stop(startTime + 0.2);
-  }
-  bark(ctx.currentTime);
-  bark(ctx.currentTime + 0.3);
-}
-
 document.querySelector('.puppy').addEventListener('click', function() {
-  playBark();
+  synth.cancel();
+  const utter = new SpeechSynthesisUtterance('woof woof');
+  utter.rate = 1.0;
+  utter.pitch = 0.8;
+  synth.speak(utter);
 });
 
 // Individual letter buttons
