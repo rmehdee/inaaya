@@ -1734,6 +1734,40 @@ function checkWin(player) {
   return null;
 }
 
+function tttSound(type) {
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  if (type === 'place') {
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(500, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 0.1);
+    gain.gain.setValueAtTime(0.3, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
+    osc.start(); osc.stop(ctx.currentTime + 0.15);
+  } else if (type === 'win') {
+    osc.type = 'triangle';
+    const t = ctx.currentTime;
+    osc.frequency.setValueAtTime(523, t);
+    gain.gain.setValueAtTime(0.3, t);
+    gain.gain.setValueAtTime(0.3, t + 0.15);
+    osc.frequency.setValueAtTime(659, t + 0.15);
+    gain.gain.setValueAtTime(0.3, t + 0.3);
+    osc.frequency.setValueAtTime(784, t + 0.3);
+    gain.gain.exponentialRampToValueAtTime(0.01, t + 0.6);
+    osc.start(); osc.stop(t + 0.6);
+  } else if (type === 'tie') {
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(400, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(200, ctx.currentTime + 0.3);
+    gain.gain.setValueAtTime(0.3, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.35);
+    osc.start(); osc.stop(ctx.currentTime + 0.35);
+  }
+}
+
 function handleCellClick(e) {
   if (gameOver) return;
   const idx = parseInt(e.target.dataset.index);
@@ -1748,14 +1782,18 @@ function handleCellClick(e) {
     gameOver = true;
     tttStatus.textContent = currentPlayer + ' wins!';
     winPattern.forEach(i => tttBoard.children[i].classList.add('win'));
+    tttSound('win');
     return;
   }
 
   if (board.every(c => c)) {
     gameOver = true;
     tttStatus.textContent = "It's a tie!";
+    tttSound('tie');
     return;
   }
+
+  tttSound('place');
 
   currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
   tttStatus.textContent = 'Your turn! (' + currentPlayer + ')';
