@@ -1740,13 +1740,20 @@ function tttSound(type) {
   const gain = ctx.createGain();
   osc.connect(gain);
   gain.connect(ctx.destination);
-  if (type === 'place') {
+  if (type === 'placeX') {
+    osc.type = 'square';
+    osc.frequency.setValueAtTime(600, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(900, ctx.currentTime + 0.1);
+    gain.gain.setValueAtTime(0.2, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.12);
+    osc.start(); osc.stop(ctx.currentTime + 0.12);
+  } else if (type === 'placeO') {
     osc.type = 'sine';
-    osc.frequency.setValueAtTime(500, ctx.currentTime);
-    osc.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 0.1);
+    osc.frequency.setValueAtTime(800, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.15);
     gain.gain.setValueAtTime(0.3, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
-    osc.start(); osc.stop(ctx.currentTime + 0.15);
+    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.18);
+    osc.start(); osc.stop(ctx.currentTime + 0.18);
   } else if (type === 'win') {
     osc.type = 'triangle';
     const t = ctx.currentTime;
@@ -1793,7 +1800,7 @@ function handleCellClick(e) {
     return;
   }
 
-  tttSound('place');
+  tttSound(currentPlayer === 'X' ? 'placeX' : 'placeO');
 
   currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
   tttStatus.textContent = 'Your turn! (' + currentPlayer + ')';
