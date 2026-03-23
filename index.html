@@ -812,6 +812,430 @@ hr {
   border-top: 7px solid #87ceeb;
 }
 
+/* ========== DADDY ========== */
+.daddy-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.daddy-label {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: #7eb8da;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(126, 184, 218, 0.5);
+}
+
+.daddy {
+  position: relative;
+  width: 120px;
+  height: 260px;
+  cursor: pointer;
+}
+
+.daddy-hair {
+  position: absolute;
+  width: 68px;
+  height: 30px;
+  background: #1a1a1a;
+  border-radius: 50% 50% 0 0;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.daddy-head {
+  position: absolute;
+  width: 65px;
+  height: 60px;
+  background: #d4a574;
+  border-radius: 50%;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.daddy-eye {
+  position: absolute;
+  width: 8px;
+  height: 10px;
+  background: #1a1a1a;
+  border-radius: 50%;
+  top: 20px;
+  animation: girlBlink 4s infinite;
+}
+.daddy-eye::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+}
+.daddy-eye-left { left: 16px; }
+.daddy-eye-right { right: 16px; }
+
+.daddy-beard {
+  position: absolute;
+  width: 35px;
+  height: 18px;
+  background: #1a1a1a;
+  border-radius: 0 0 50% 50%;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+}
+
+.daddy-smile {
+  position: absolute;
+  width: 18px;
+  height: 8px;
+  border-bottom: 3px solid #c0756b;
+  border-radius: 0 0 50% 50%;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.daddy-shirt {
+  position: absolute;
+  width: 70px;
+  height: 80px;
+  background: #4a90d9;
+  border-radius: 10px 10px 5px 5px;
+  top: 68px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.daddy-shirt::before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 50px;
+  background: #3a7bc8;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.daddy-shirt::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #3a7bc8;
+  border-radius: 0 0 50% 50%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.daddy-pants {
+  position: absolute;
+  width: 68px;
+  height: 50px;
+  background: #2c3e50;
+  border-radius: 0 0 5px 5px;
+  top: 145px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.daddy-pants::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background: #1a2a3a;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.daddy-arm {
+  position: absolute;
+  width: 14px;
+  height: 65px;
+  background: #d4a574;
+  border-radius: 8px;
+  top: 72px;
+  z-index: 2;
+}
+.daddy-arm-left { left: 16px; transform: rotate(10deg); }
+.daddy-arm-right { right: 16px; transform: rotate(-10deg); }
+
+.daddy-leg {
+  position: absolute;
+  width: 16px;
+  height: 55px;
+  background: #2c3e50;
+  border-radius: 8px;
+  bottom: 15px;
+  z-index: 0;
+}
+.daddy-leg-left { left: 36px; }
+.daddy-leg-right { right: 36px; }
+
+.daddy-shoe {
+  position: absolute;
+  width: 22px;
+  height: 12px;
+  background: #2c1810;
+  border-radius: 50% 50% 40% 40%;
+  bottom: 8px;
+  z-index: 0;
+}
+.daddy-shoe-left { left: 33px; }
+.daddy-shoe-right { right: 33px; }
+
+.daddy-bubble {
+  position: absolute;
+  top: -10px;
+  right: -25px;
+  background: white;
+  border: 2px solid #4a90d9;
+  border-radius: 15px;
+  padding: 5px 12px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  color: #4a90d9;
+  z-index: 10;
+  animation: bubblePop 2s ease-in-out infinite alternate;
+  white-space: nowrap;
+}
+.daddy-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 15px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #4a90d9;
+}
+
+/* ========== MOMMY ========== */
+.mommy-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.mommy-label {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: #f0a0c0;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(240, 160, 192, 0.5);
+}
+
+.mommy {
+  position: relative;
+  width: 120px;
+  height: 260px;
+  cursor: pointer;
+}
+
+.mommy-hair {
+  position: absolute;
+  width: 75px;
+  height: 55px;
+  background: #1a1a1a;
+  border-radius: 50% 50% 0 0;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.mommy-hair-side {
+  position: absolute;
+  width: 20px;
+  height: 85px;
+  background: #1a1a1a;
+  border-radius: 0 0 40% 40%;
+  top: 18px;
+  z-index: 2;
+}
+.mommy-hair-left { left: 18px; }
+.mommy-hair-right { right: 18px; }
+
+.mommy-head {
+  position: absolute;
+  width: 65px;
+  height: 60px;
+  background: #d4a574;
+  border-radius: 50%;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.mommy-eye {
+  position: absolute;
+  width: 9px;
+  height: 11px;
+  background: #1a1a1a;
+  border-radius: 50%;
+  top: 18px;
+  animation: girlBlink 3.5s infinite;
+}
+.mommy-eye::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+}
+.mommy-eye-left { left: 15px; }
+.mommy-eye-right { right: 15px; }
+
+.mommy-eyelash {
+  position: absolute;
+  width: 13px;
+  height: 3px;
+  border-top: 2px solid #1a1a1a;
+  top: 16px;
+  z-index: 4;
+}
+.mommy-eyelash-left { left: 14px; }
+.mommy-eyelash-right { right: 14px; }
+
+.mommy-lips {
+  position: absolute;
+  width: 16px;
+  height: 8px;
+  background: #e06070;
+  border-radius: 50%;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mommy-blush {
+  position: absolute;
+  width: 11px;
+  height: 7px;
+  background: rgba(255, 150, 150, 0.4);
+  border-radius: 50%;
+  top: 28px;
+}
+.mommy-blush-left { left: 6px; }
+.mommy-blush-right { right: 6px; }
+
+.mommy-dress {
+  position: absolute;
+  width: 65px;
+  height: 100px;
+  background: linear-gradient(180deg, #e84393, #d63384);
+  border-radius: 10px 10px 40% 40%;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.mommy-dress::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mommy-belt {
+  position: absolute;
+  width: 65px;
+  height: 6px;
+  background: #c0275e;
+  top: 105px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.mommy-arm {
+  position: absolute;
+  width: 13px;
+  height: 60px;
+  background: #d4a574;
+  border-radius: 8px;
+  top: 74px;
+  z-index: 2;
+}
+.mommy-arm-left { left: 18px; transform: rotate(10deg); }
+.mommy-arm-right { right: 18px; transform: rotate(-10deg); }
+
+.mommy-leg {
+  position: absolute;
+  width: 14px;
+  height: 55px;
+  background: #d4a574;
+  border-radius: 8px;
+  bottom: 15px;
+  z-index: 0;
+}
+.mommy-leg-left { left: 38px; }
+.mommy-leg-right { right: 38px; }
+
+.mommy-shoe {
+  position: absolute;
+  width: 18px;
+  height: 12px;
+  background: #e84393;
+  border-radius: 50% 50% 40% 40%;
+  bottom: 8px;
+  z-index: 0;
+}
+.mommy-shoe-left { left: 36px; }
+.mommy-shoe-right { right: 36px; }
+
+.mommy-bubble {
+  position: absolute;
+  top: -10px;
+  right: -25px;
+  background: white;
+  border: 2px solid #e84393;
+  border-radius: 15px;
+  padding: 5px 12px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  color: #e84393;
+  z-index: 10;
+  animation: bubblePop 2s ease-in-out infinite alternate;
+  white-space: nowrap;
+}
+.mommy-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 15px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #e84393;
+}
+
 /* Responsive: stack on small screens */
 @media (max-width: 500px) {
   .columns { flex-direction: column; gap: 40px; }
@@ -827,7 +1251,30 @@ hr {
 <hr>
 
 <div class="columns">
-  <!-- Left: Girl + Baby together -->
+  <!-- Leftmost: Daddy -->
+  <div class="column daddy-column">
+    <div class="daddy-label">Daddy</div>
+    <div class="daddy">
+      <div class="daddy-bubble">Hey!</div>
+      <div class="daddy-hair"></div>
+      <div class="daddy-head">
+        <div class="daddy-eye daddy-eye-left"></div>
+        <div class="daddy-eye daddy-eye-right"></div>
+        <div class="daddy-smile"></div>
+        <div class="daddy-beard"></div>
+      </div>
+      <div class="daddy-shirt"></div>
+      <div class="daddy-pants"></div>
+      <div class="daddy-arm daddy-arm-left"></div>
+      <div class="daddy-arm daddy-arm-right"></div>
+      <div class="daddy-leg daddy-leg-left"></div>
+      <div class="daddy-leg daddy-leg-right"></div>
+      <div class="daddy-shoe daddy-shoe-left"></div>
+      <div class="daddy-shoe daddy-shoe-right"></div>
+    </div>
+  </div>
+
+  <!-- Middle: Girl + Baby together -->
   <div class="column family-group">
     <div class="girl">
       <div class="speech-bubble">Hi!</div>
@@ -900,6 +1347,34 @@ hr {
         <div class="leg leg-back-left"></div>
         <div class="leg leg-back-right"></div>
       </div>
+    </div>
+  </div>
+
+  <!-- Rightmost: Mommy -->
+  <div class="column mommy-column">
+    <div class="mommy-label">Mommy</div>
+    <div class="mommy">
+      <div class="mommy-bubble">Love!</div>
+      <div class="mommy-hair"></div>
+      <div class="mommy-hair-side mommy-hair-left"></div>
+      <div class="mommy-hair-side mommy-hair-right"></div>
+      <div class="mommy-head">
+        <div class="mommy-eyelash mommy-eyelash-left"></div>
+        <div class="mommy-eyelash mommy-eyelash-right"></div>
+        <div class="mommy-eye mommy-eye-left"></div>
+        <div class="mommy-eye mommy-eye-right"></div>
+        <div class="mommy-lips"></div>
+        <div class="mommy-blush mommy-blush-left"></div>
+        <div class="mommy-blush mommy-blush-right"></div>
+      </div>
+      <div class="mommy-dress"></div>
+      <div class="mommy-belt"></div>
+      <div class="mommy-arm mommy-arm-left"></div>
+      <div class="mommy-arm mommy-arm-right"></div>
+      <div class="mommy-leg mommy-leg-left"></div>
+      <div class="mommy-leg mommy-leg-right"></div>
+      <div class="mommy-shoe mommy-shoe-left"></div>
+      <div class="mommy-shoe mommy-shoe-right"></div>
     </div>
   </div>
 </div>
@@ -1026,6 +1501,22 @@ document.querySelector('.puppy').addEventListener('click', function() {
   const utter = new SpeechSynthesisUtterance('woof woof');
   utter.rate = 1.0;
   utter.pitch = 0.8;
+  synth.speak(utter);
+});
+
+document.querySelector('.daddy').addEventListener('click', function() {
+  synth.cancel();
+  const utter = new SpeechSynthesisUtterance('Hey kids!');
+  utter.rate = 0.9;
+  utter.pitch = 0.7;
+  synth.speak(utter);
+});
+
+document.querySelector('.mommy').addEventListener('click', function() {
+  synth.cancel();
+  const utter = new SpeechSynthesisUtterance('I love you all!');
+  utter.rate = 0.9;
+  utter.pitch = 1.3;
   synth.speak(utter);
 });
 
