@@ -65,6 +65,12 @@ hr {
   min-width: 200px;
 }
 
+.family-group {
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+}
+
 .column-puppy {
   flex-direction: column;
   gap: 15px;
@@ -821,8 +827,8 @@ hr {
 <hr>
 
 <div class="columns">
-  <!-- Left: Girl -->
-  <div class="column">
+  <!-- Left: Girl + Baby together -->
+  <div class="column family-group">
     <div class="girl">
       <div class="speech-bubble">Hi!</div>
       <div class="girl-hair"></div>
@@ -845,32 +851,30 @@ hr {
       <div class="girl-shoe girl-shoe-left"></div>
       <div class="girl-shoe girl-shoe-right"></div>
     </div>
-  </div>
-
-  <!-- Middle: Baby (Hamza) -->
-  <div class="column baby-column">
-    <div class="baby-label">Hamza</div>
-    <div class="baby">
-      <div class="baby-bubble">Goo!</div>
-      <div class="baby-hair"></div>
-      <div class="baby-head">
-        <div class="baby-eye baby-eye-left"></div>
-        <div class="baby-eye baby-eye-right"></div>
-        <div class="baby-mouth"></div>
-        <div class="baby-cheek baby-cheek-left"></div>
-        <div class="baby-cheek baby-cheek-right"></div>
+    <div class="baby-column">
+      <div class="baby-label">Hamza</div>
+      <div class="baby">
+        <div class="baby-bubble">Goo!</div>
+        <div class="baby-hair"></div>
+        <div class="baby-head">
+          <div class="baby-eye baby-eye-left"></div>
+          <div class="baby-eye baby-eye-right"></div>
+          <div class="baby-mouth"></div>
+          <div class="baby-cheek baby-cheek-left"></div>
+          <div class="baby-cheek baby-cheek-right"></div>
+        </div>
+        <div class="baby-onesie"></div>
+        <div class="baby-arm baby-arm-left">
+          <div class="baby-hand"></div>
+        </div>
+        <div class="baby-arm baby-arm-right">
+          <div class="baby-hand"></div>
+        </div>
+        <div class="baby-leg baby-leg-left"></div>
+        <div class="baby-leg baby-leg-right"></div>
+        <div class="baby-foot baby-foot-left"></div>
+        <div class="baby-foot baby-foot-right"></div>
       </div>
-      <div class="baby-onesie"></div>
-      <div class="baby-arm baby-arm-left">
-        <div class="baby-hand"></div>
-      </div>
-      <div class="baby-arm baby-arm-right">
-        <div class="baby-hand"></div>
-      </div>
-      <div class="baby-leg baby-leg-left"></div>
-      <div class="baby-leg baby-leg-right"></div>
-      <div class="baby-foot baby-foot-left"></div>
-      <div class="baby-foot baby-foot-right"></div>
     </div>
   </div>
 
