@@ -838,14 +838,38 @@ hr {
 
 .daddy-hair {
   position: absolute;
-  width: 68px;
-  height: 30px;
+  width: 72px;
+  height: 35px;
   background: #1a1a1a;
-  border-radius: 50% 50% 0 0;
-  top: 0;
+  border-radius: 50% 50% 5% 5%;
+  top: -2px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 4;
+}
+
+.daddy-hair-side {
+  position: absolute;
+  width: 12px;
+  height: 25px;
+  background: #1a1a1a;
+  border-radius: 0 0 40% 40%;
+  top: 18px;
   z-index: 2;
+}
+.daddy-hair-side-left { left: 22px; }
+.daddy-hair-side-right { right: 22px; }
+
+.daddy-hair-top {
+  position: absolute;
+  width: 30px;
+  height: 18px;
+  background: #1a1a1a;
+  border-radius: 50% 80% 0 0;
+  top: -8px;
+  left: 42%;
+  transform: translateX(-50%) rotate(-10deg);
+  z-index: 5;
 }
 
 .daddy-head {
@@ -1257,6 +1281,9 @@ hr {
     <div class="daddy">
       <div class="daddy-bubble">Hey!</div>
       <div class="daddy-hair"></div>
+      <div class="daddy-hair-top"></div>
+      <div class="daddy-hair-side daddy-hair-side-left"></div>
+      <div class="daddy-hair-side daddy-hair-side-right"></div>
       <div class="daddy-head">
         <div class="daddy-eye daddy-eye-left"></div>
         <div class="daddy-eye daddy-eye-right"></div>
