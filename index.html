@@ -1262,16 +1262,18 @@ hr {
 
 /* Responsive: stack on small screens */
 @media (max-width: 600px) {
-  .columns { flex-wrap: nowrap; gap: 10px; padding: 10px; }
+  .columns { flex-wrap: nowrap; gap: 0; padding: 0; justify-content: space-between; }
   .column { min-width: unset; }
   h1 { font-size: 36px; padding: 15px 0 5px; }
-  .daddy { transform: scale(0.55); transform-origin: bottom center; }
-  .girl { transform: scale(0.55); transform-origin: bottom center; }
-  .baby { transform: scale(0.5); transform-origin: bottom center; }
-  .mommy { transform: scale(0.55); transform-origin: bottom center; }
-  .puppy .body { transform: scale(0.7); transform-origin: bottom center; }
-  .family-group { gap: 0px; }
-  .daddy-label, .mommy-label, .puppy-label, .baby-label { font-size: 14px; }
+  .daddy { transform: scale(0.45); transform-origin: bottom center; }
+  .girl { transform: scale(0.45); transform-origin: bottom center; }
+  .baby { transform: scale(0.4); transform-origin: bottom center; }
+  .mommy { transform: scale(0.45); transform-origin: bottom center; }
+  .puppy .body { transform: scale(0.6); transform-origin: bottom center; }
+  .family-group { gap: 0; margin: 0 -10px; }
+  .daddy-column { margin-left: -20px; }
+  .mommy-column { margin-right: -20px; }
+  .daddy-label, .mommy-label, .puppy-label, .baby-label { font-size: 12px; }
   .alpha-btn { width: 40px; height: 40px; font-size: 16px; }
   .alphabet-grid { grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); }
 }
