@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INAAYA MEHDEE</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  font-family: sans-serif;
+  background: #1a1a2e;
+}
+
+h1 {
+  font-size: clamp(40px, 10vw, 90px);
+  text-align: center;
+  padding: 30px 0 10px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(90deg, #ff6b9d, #c84bfa, #6dd5fa, #ff6b9d);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 0% 50%; text-shadow: none; transform: scale(1); }
+  50%  { background-position: 100% 50%; transform: scale(1.03); }
+  100% { background-position: 0% 50%; transform: scale(1); }
+}
+
+hr {
+  width: 80%;
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff69b4, #a66cff, #45b7d1, transparent);
+  margin-bottom: 20px;
+}
+
+/* hr defined above */
+
+/* Two column layout */
+.columns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(30px, 8vw, 120px);
+  flex: 1;
+  width: 100%;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 200px;
+}
+
+.column-puppy {
+  flex-direction: column;
+  gap: 15px;
+}
+
+.puppy-label {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffd9a0;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 200, 120, 0.5);
+  animation: labelBounce 2s ease-in-out infinite alternate;
+}
+
+@keyframes labelBounce {
+  0%   { transform: translateY(-10px); }
+  100% { transform: translateY(10px); }
+}
+
+/* ========== GIRL ========== */
+.girl {
+  position: relative;
+  width: 110px;
+  height: 210px;
+}
+
+.girl-hair {
+  position: absolute;
+  width: 70px;
+  height: 50px;
+  background: #2c1810;
+  border-radius: 50% 50% 0 0;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.girl-head {
+  position: absolute;
+  width: 60px;
+  height: 55px;
+  background: #f5d0a9;
+  border-radius: 50%;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.girl-hair-side {
+  position: absolute;
+  width: 18px;
+  height: 70px;
+  background: #2c1810;
+  border-radius: 0 0 40% 40%;
+  top: 20px;
+  z-index: 2;
+}
+.girl-hair-left { left: 18px; }
+.girl-hair-right { right: 18px; }
+
+.girl-eye {
+  position: absolute;
+  width: 8px;
+  height: 10px;
+  background: #2c1810;
+  border-radius: 50%;
+  top: 18px;
+  animation: girlBlink 3.5s infinite;
+}
+.girl-eye::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+}
+.girl-eye-left { left: 14px; }
+.girl-eye-right { right: 14px; }
+
+@keyframes girlBlink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+
+.girl-smile {
+  position: absolute;
+  width: 16px;
+  height: 8px;
+  border-bottom: 3px solid #e07060;
+  border-radius: 0 0 50% 50%;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.girl-blush {
+  position: absolute;
+  width: 10px;
+  height: 6px;
+  background: rgba(255, 150, 150, 0.5);
+  border-radius: 50%;
+  top: 30px;
+}
+.girl-blush-left { left: 6px; }
+.girl-blush-right { right: 6px; }
+
+.girl-dress {
+  position: absolute;
+  width: 55px;
+  height: 70px;
+  background: #ff69b4;
+  border-radius: 10px 10px 30% 30%;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.girl-dress::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: -8px;
+  right: -8px;
+  height: 15px;
+  background: #ff85c8;
+  border-radius: 0 0 50% 50%;
+}
+
+.girl-arm {
+  position: absolute;
+  width: 12px;
+  height: 50px;
+  background: #f5d0a9;
+  border-radius: 8px;
+  top: 75px;
+  z-index: 2;
+}
+.girl-arm-left {
+  left: 18px;
+  transform: rotate(15deg);
+}
+.girl-arm-right {
+  right: 18px;
+  transform-origin: top center;
+  animation: wave 0.6s ease-in-out infinite alternate;
+}
+
+.girl-hand {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #f5d0a9;
+  border-radius: 50%;
+  bottom: -4px;
+  left: -1px;
+}
+
+@keyframes wave {
+  0% { transform: rotate(-30deg); }
+  100% { transform: rotate(-70deg); }
+}
+
+.girl-leg {
+  position: absolute;
+  width: 14px;
+  height: 45px;
+  background: #f5d0a9;
+  border-radius: 8px;
+  bottom: 12px;
+  z-index: 0;
+}
+.girl-leg-left { left: 35px; }
+.girl-leg-right { right: 35px; }
+
+.girl-shoe {
+  position: absolute;
+  width: 18px;
+  height: 10px;
+  background: #ff1493;
+  border-radius: 50% 50% 40% 40%;
+  bottom: 7px;
+  z-index: 0;
+}
+.girl-shoe-left { left: 33px; }
+.girl-shoe-right { right: 33px; }
+
+.speech-bubble {
+  position: absolute;
+  top: -10px;
+  right: -15px;
+  background: white;
+  border: 2px solid #ff69b4;
+  border-radius: 15px;
+  padding: 5px 12px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ff1493;
+  z-index: 10;
+  animation: bubblePop 1.5s ease-in-out infinite alternate;
+  white-space: nowrap;
+}
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 15px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #ff69b4;
+}
+
+@keyframes bubblePop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* ========== FLYING PUPPY ========== */
+.puppy {
+  position: relative;
+  cursor: pointer;
+  animation: puppyHover 2s ease-in-out infinite alternate;
+}
+
+@keyframes puppyHover {
+  0%   { transform: translateY(-10px); }
+  100% { transform: translateY(10px); }
+}
+
+.puppy .body {
+  position: relative;
+  width: 120px;
+  height: 100px;
+}
+
+.puppy .head {
+  position: absolute;
+  width: 50px;
+  height: 45px;
+  background: #c89664;
+  border-radius: 50% 50% 45% 45%;
+  top: 5px;
+  left: 0;
+  z-index: 3;
+}
+
+.puppy .eye {
+  position: absolute;
+  width: 10px;
+  height: 12px;
+  background: #2c1810;
+  border-radius: 50%;
+  top: 14px;
+  animation: blink 3s infinite;
+}
+.puppy .eye::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+}
+.puppy .eye-left { left: 10px; }
+.puppy .eye-right { right: 10px; }
+
+@keyframes blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+
+.puppy .nose {
+  position: absolute;
+  width: 12px;
+  height: 8px;
+  background: #2c1810;
+  border-radius: 50%;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+}
+
+.puppy .tongue {
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  background: #ff6b8a;
+  border-radius: 0 0 50% 50%;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: pant 0.4s ease-in-out infinite alternate;
+  z-index: 2;
+}
+
+@keyframes pant {
+  0% { height: 10px; }
+  100% { height: 14px; }
+}
+
+.puppy .ear {
+  position: absolute;
+  width: 20px;
+  height: 30px;
+  background: #a0724a;
+  border-radius: 50% 50% 40% 40%;
+  top: -5px;
+  z-index: 2;
+  animation: earFlop 1s ease-in-out infinite alternate;
+}
+.puppy .ear-left {
+  left: 2px;
+  transform-origin: top center;
+  transform: rotate(15deg);
+}
+.puppy .ear-right {
+  left: 32px;
+  transform-origin: top center;
+  transform: rotate(-15deg);
+}
+
+@keyframes earFlop {
+  0% { transform: rotate(15deg); }
+  100% { transform: rotate(25deg); }
+}
+
+.puppy .torso {
+  position: absolute;
+  width: 70px;
+  height: 45px;
+  background: #c89664;
+  border-radius: 40% 55% 50% 40%;
+  top: 30px;
+  left: 30px;
+  z-index: 1;
+}
+
+.puppy .tail {
+  position: absolute;
+  width: 8px;
+  height: 30px;
+  background: #a0724a;
+  border-radius: 50%;
+  top: 20px;
+  right: 5px;
+  transform-origin: bottom center;
+  animation: wag 0.3s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes wag {
+  0% { transform: rotate(-20deg); }
+  100% { transform: rotate(20deg); }
+}
+
+.puppy .leg {
+  position: absolute;
+  width: 12px;
+  height: 25px;
+  background: #c89664;
+  border-radius: 5px 5px 8px 8px;
+  bottom: 0;
+  z-index: 0;
+  animation: legKick 0.5s ease-in-out infinite alternate;
+}
+.puppy .leg-front-left  { left: 32px; }
+.puppy .leg-front-right { left: 48px; animation-delay: 0.15s; }
+.puppy .leg-back-left   { left: 72px; animation-delay: 0.25s; }
+.puppy .leg-back-right  { left: 88px; animation-delay: 0.4s; }
+
+@keyframes legKick {
+  0% { transform: rotate(10deg); }
+  100% { transform: rotate(-10deg); }
+}
+
+.puppy .wing {
+  position: absolute;
+  width: 40px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50% 50% 20% 20%;
+  z-index: 5;
+  animation: flap 0.3s ease-in-out infinite alternate;
+  box-shadow: 0 0 10px rgba(255,182,193,0.5);
+}
+.puppy .wing-left {
+  top: 20px;
+  left: 30px;
+  transform-origin: right bottom;
+}
+.puppy .wing-right {
+  top: 20px;
+  right: 0px;
+  transform-origin: left bottom;
+}
+
+@keyframes flap {
+  0% { transform: rotate(20deg) scaleY(1); }
+  100% { transform: rotate(-15deg) scaleY(0.8); }
+}
+
+/* ========== ALPHABET BUTTONS ========== */
+.alphabet-section {
+  width: 100%;
+  max-width: 700px;
+  padding: 30px 20px;
+}
+
+.alphabet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
+  gap: 10px;
+  justify-items: center;
+}
+
+.alpha-btn {
+  width: 55px;
+  height: 55px;
+  border: none;
+  border-radius: 12px;
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+/* Rainbow colors for buttons */
+.alpha-btn:nth-child(26n+1)  { background: #ff6b6b; }
+.alpha-btn:nth-child(26n+2)  { background: #ff8e53; }
+.alpha-btn:nth-child(26n+3)  { background: #ffc048; }
+.alpha-btn:nth-child(26n+4)  { background: #ffd93d; }
+.alpha-btn:nth-child(26n+5)  { background: #6bcb77; }
+.alpha-btn:nth-child(26n+6)  { background: #4ecdc4; }
+.alpha-btn:nth-child(26n+7)  { background: #45b7d1; }
+.alpha-btn:nth-child(26n+8)  { background: #5f7fee; }
+.alpha-btn:nth-child(26n+9)  { background: #a66cff; }
+.alpha-btn:nth-child(26n+10) { background: #e36bae; }
+.alpha-btn:nth-child(26n+11) { background: #ff6b6b; }
+.alpha-btn:nth-child(26n+12) { background: #ff8e53; }
+.alpha-btn:nth-child(26n+13) { background: #ffc048; }
+.alpha-btn:nth-child(26n+14) { background: #6bcb77; }
+.alpha-btn:nth-child(26n+15) { background: #4ecdc4; }
+.alpha-btn:nth-child(26n+16) { background: #45b7d1; }
+.alpha-btn:nth-child(26n+17) { background: #5f7fee; }
+.alpha-btn:nth-child(26n+18) { background: #a66cff; }
+.alpha-btn:nth-child(26n+19) { background: #e36bae; }
+.alpha-btn:nth-child(26n+20) { background: #ff6b6b; }
+.alpha-btn:nth-child(26n+21) { background: #ffd93d; }
+.alpha-btn:nth-child(26n+22) { background: #6bcb77; }
+.alpha-btn:nth-child(26n+23) { background: #45b7d1; }
+.alpha-btn:nth-child(26n+24) { background: #5f7fee; }
+.alpha-btn:nth-child(26n+25) { background: #a66cff; }
+.alpha-btn:nth-child(26n+26) { background: #e36bae; }
+
+.alpha-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+.alpha-btn:active {
+  transform: scale(0.95);
+}
+
+.alpha-btn.pop {
+  animation: popAnim 0.3s ease;
+}
+
+@keyframes popAnim {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* Play / Sing button */
+.play-btn {
+  display: block;
+  margin: 0 auto 20px;
+  padding: 12px 30px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: white;
+  background: linear-gradient(135deg, #ff6b6b, #a66cff, #45b7d1);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.play-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+.play-btn:active {
+  transform: scale(0.96);
+}
+.play-btn.singing {
+  animation: pulseBtn 0.6s ease-in-out infinite alternate;
+}
+@keyframes pulseBtn {
+  0%   { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+  100% { transform: scale(1.06); box-shadow: 0 6px 18px rgba(166,108,255,0.4); }
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 500px) {
+  .columns { flex-direction: column; gap: 40px; }
+  h1 { font-size: 40px; padding: 20px 0 5px; }
+  .alpha-btn { width: 45px; height: 45px; font-size: 18px; }
+  .alphabet-grid { grid-template-columns: repeat(auto-fill, minmax(45px, 1fr)); }
+}
+</style>
+</head>
+<body>
+
+<h1>INAAYA MEHDEE</h1>
+<hr>
+
+<div class="columns">
+  <!-- Left: Girl -->
+  <div class="column">
+    <div class="girl">
+      <div class="speech-bubble">Hi!</div>
+      <div class="girl-hair"></div>
+      <div class="girl-head">
+        <div class="girl-eye girl-eye-left"></div>
+        <div class="girl-eye girl-eye-right"></div>
+        <div class="girl-smile"></div>
+        <div class="girl-blush girl-blush-left"></div>
+        <div class="girl-blush girl-blush-right"></div>
+      </div>
+      <div class="girl-hair-side girl-hair-left"></div>
+      <div class="girl-hair-side girl-hair-right"></div>
+      <div class="girl-dress"></div>
+      <div class="girl-arm girl-arm-left"></div>
+      <div class="girl-arm girl-arm-right">
+        <div class="girl-hand"></div>
+      </div>
+      <div class="girl-leg girl-leg-left"></div>
+      <div class="girl-leg girl-leg-right"></div>
+      <div class="girl-shoe girl-shoe-left"></div>
+      <div class="girl-shoe girl-shoe-right"></div>
+    </div>
+  </div>
+
+  <!-- Right: Puppy (Ginger) -->
+  <div class="column column-puppy">
+    <div class="puppy-label">Ginger</div>
+    <div class="puppy">
+      <div class="wing wing-left"></div>
+      <div class="wing wing-right"></div>
+      <div class="body">
+        <div class="ear ear-left"></div>
+        <div class="ear ear-right"></div>
+        <div class="head">
+          <div class="eye eye-left"></div>
+          <div class="eye eye-right"></div>
+          <div class="nose"></div>
+          <div class="tongue"></div>
+        </div>
+        <div class="torso"></div>
+        <div class="tail"></div>
+        <div class="leg leg-front-left"></div>
+        <div class="leg leg-front-right"></div>
+        <div class="leg leg-back-left"></div>
+        <div class="leg leg-back-right"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Alphabet Buttons -->
+<div class="alphabet-section">
+  <button class="play-btn" id="playBtn">&#9654; Sing ABC</button>
+  <div class="alphabet-grid" id="alphabetGrid"></div>
+</div>
+
+<script>
+const grid = document.getElementById('alphabetGrid');
+const synth = window.speechSynthesis;
+const playBtn = document.getElementById('playBtn');
+const allBtns = [];
+let singing = false;
+let audioCtx = null;
+
+// ABC song notes mapped to "Twinkle Twinkle" melody
+// Each entry: [letter index (0-25 or -1 for non-letter), note frequency, duration in ms]
+const C4=261.63, D4=293.66, E4=329.63, F4=349.23, G4=392.00, A4=440.00, B4=493.88, C5=523.25;
+
+const abcSong = [
+  // A B C D E F G
+  [0, C4, 400], [1, C4, 400], [2, G4, 400], [3, G4, 400],
+  [4, A4, 400], [5, A4, 400], [6, G4, 800],
+  // H I J K L M N O P
+  [7, F4, 400], [8, F4, 400], [9, E4, 400], [10, E4, 400],
+  [11, D4, 300], [12, D4, 300], [13, D4, 300], [14, D4, 300], [15, C4, 800],
+  // Q R S T U V
+  [16, G4, 400], [17, G4, 400], [18, F4, 400], [19, F4, 400],
+  [20, E4, 400], [21, E4, 400],
+  // W X Y Z
+  [22, D4, 800], [23, G4, 300], [24, G4, 300],
+  [25, F4, 600], [-1, E4, 400], [-1, D4, 800],
+];
+
+function playNote(freq, duration, startTime) {
+  if (!audioCtx) return;
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.type = 'triangle';
+  osc.frequency.value = freq;
+  gain.gain.setValueAtTime(0.3, startTime);
+  gain.gain.exponentialRampToValueAtTime(0.01, startTime + duration / 1000 - 0.05);
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  osc.start(startTime);
+  osc.stop(startTime + duration / 1000);
+}
+
+playBtn.addEventListener('click', function() {
+  if (singing) {
+    singing = false;
+    if (audioCtx) { audioCtx.close(); audioCtx = null; }
+    playBtn.textContent = '\u25B6 Sing ABC';
+    playBtn.classList.remove('singing');
+    allBtns.forEach(b => b.classList.remove('pop'));
+    return;
+  }
+
+  singing = true;
+  playBtn.textContent = '\u25A0 Stop';
+  playBtn.classList.add('singing');
+
+  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  let time = audioCtx.currentTime + 0.1;
+  let elapsed = 0;
+
+  // Schedule all notes
+  abcSong.forEach(([letterIdx, freq, dur]) => {
+    playNote(freq, dur, time);
+
+    // Highlight the button
+    if (letterIdx >= 0 && letterIdx < 26) {
+      const delay = elapsed;
+      setTimeout(() => {
+        if (!singing) return;
+        allBtns.forEach(b => b.classList.remove('pop'));
+        allBtns[letterIdx].classList.add('pop');
+      }, delay);
+    }
+
+    elapsed += dur;
+    time += dur / 1000;
+  });
+
+  // End
+  setTimeout(() => {
+    if (!singing) return;
+    singing = false;
+    playBtn.textContent = '\u25B6 Sing ABC';
+    playBtn.classList.remove('singing');
+    allBtns.forEach(b => b.classList.remove('pop'));
+    if (audioCtx) { audioCtx.close(); audioCtx = null; }
+  }, elapsed + 200);
+});
+
+// Individual letter buttons
+for (let i = 65; i <= 90; i++) {
+  const letter = String.fromCharCode(i);
+  const btn = document.createElement('button');
+  btn.className = 'alpha-btn';
+  btn.textContent = letter;
+  btn.addEventListener('click', function() {
+    synth.cancel();
+    const utter = new SpeechSynthesisUtterance(letter.toLowerCase());
+    utter.rate = 0.8;
+    utter.pitch = 1.2;
+    synth.speak(utter);
+    btn.classList.add('pop');
+    setTimeout(() => btn.classList.remove('pop'), 300);
+  });
+  grid.appendChild(btn);
+  allBtns.push(btn);
+}
+</script>
+
+</body>
+</html>
