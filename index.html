@@ -1140,11 +1140,21 @@ hr {
 
 .mommy-lips {
   position: absolute;
-  width: 16px;
-  height: 8px;
+  width: 18px;
+  height: 9px;
   background: #e06070;
-  border-radius: 50%;
+  border-radius: 0 0 50% 50%;
   bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.mommy-smile {
+  position: absolute;
+  width: 22px;
+  height: 10px;
+  border-bottom: 3px solid #e06070;
+  border-radius: 0 0 50% 50%;
+  bottom: 18px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -1260,16 +1270,11 @@ hr {
 
 /* Responsive: stack on small screens */
 @media (max-width: 600px) {
-  .columns { flex-wrap: nowrap; gap: 0; padding: 0; justify-content: center; }
+  .columns { flex-wrap: nowrap; gap: 5px; padding: 0 5px; justify-content: center; zoom: 0.45; }
   .column { min-width: unset; }
+  .family-group { gap: 5px; }
   h1 { font-size: 36px; padding: 15px 0 5px; }
-  .daddy { width: 60px; height: 130px; transform: scale(0.5); transform-origin: top left; }
-  .mommy { width: 60px; height: 130px; transform: scale(0.5); transform-origin: top left; }
-  .girl { width: 55px; height: 105px; transform: scale(0.5); transform-origin: top left; }
-  .baby { width: 45px; height: 65px; transform: scale(0.5); transform-origin: top left; }
-  .puppy .body { width: 60px; height: 50px; transform: scale(0.5); transform-origin: top left; }
-  .family-group { gap: 0; }
-  .daddy-label, .mommy-label, .puppy-label, .baby-label { font-size: 11px; }
+  .daddy-label, .mommy-label, .puppy-label, .baby-label { font-size: 18px; }
   .alpha-btn { width: 40px; height: 40px; font-size: 16px; }
   .alphabet-grid { grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); }
 }
@@ -1396,6 +1401,7 @@ hr {
         <div class="mommy-eyelash mommy-eyelash-right"></div>
         <div class="mommy-eye mommy-eye-left"></div>
         <div class="mommy-eye mommy-eye-right"></div>
+        <div class="mommy-smile"></div>
         <div class="mommy-lips"></div>
         <div class="mommy-blush mommy-blush-left"></div>
         <div class="mommy-blush mommy-blush-right"></div>
