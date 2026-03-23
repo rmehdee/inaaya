@@ -584,6 +584,226 @@ hr {
   100% { transform: scale(1.06); box-shadow: 0 6px 18px rgba(166,108,255,0.4); }
 }
 
+/* ========== BABY (HAMZA) ========== */
+.baby-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 120px;
+}
+
+.baby-label {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #a0d8ef;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(160, 216, 239, 0.5);
+  animation: labelBounce 2.5s ease-in-out infinite alternate;
+}
+
+.baby {
+  position: relative;
+  width: 90px;
+  height: 130px;
+  animation: babyBounce 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes babyBounce {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
+.baby-head {
+  position: absolute;
+  width: 55px;
+  height: 50px;
+  background: #f5d0a9;
+  border-radius: 50%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.baby-hair {
+  position: absolute;
+  width: 50px;
+  height: 20px;
+  background: #3a2a1a;
+  border-radius: 50% 50% 0 0;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+}
+
+.baby-eye {
+  position: absolute;
+  width: 9px;
+  height: 11px;
+  background: #2c1810;
+  border-radius: 50%;
+  top: 16px;
+  animation: babyBlink 4s infinite;
+}
+.baby-eye::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+}
+.baby-eye-left { left: 12px; }
+.baby-eye-right { right: 12px; }
+
+@keyframes babyBlink {
+  0%, 85%, 100% { transform: scaleY(1); }
+  90% { transform: scaleY(0.1); }
+}
+
+.baby-mouth {
+  position: absolute;
+  width: 10px;
+  height: 6px;
+  background: #e07060;
+  border-radius: 0 0 50% 50%;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: babyCoo 2s ease-in-out infinite;
+}
+
+@keyframes babyCoo {
+  0%, 100% { width: 10px; height: 6px; }
+  50% { width: 12px; height: 8px; }
+}
+
+.baby-cheek {
+  position: absolute;
+  width: 10px;
+  height: 7px;
+  background: rgba(255, 150, 150, 0.45);
+  border-radius: 50%;
+  top: 24px;
+}
+.baby-cheek-left { left: 4px; }
+.baby-cheek-right { right: 4px; }
+
+.baby-onesie {
+  position: absolute;
+  width: 50px;
+  height: 45px;
+  background: #87ceeb;
+  border-radius: 12px 12px 20px 20px;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.baby-onesie::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.baby-arm {
+  position: absolute;
+  width: 10px;
+  height: 30px;
+  background: #f5d0a9;
+  border-radius: 8px;
+  top: 48px;
+  z-index: 2;
+}
+.baby-arm-left {
+  left: 14px;
+  transform: rotate(20deg);
+  animation: babyArmWave 1.2s ease-in-out infinite alternate;
+}
+.baby-arm-right {
+  right: 14px;
+  transform: rotate(-20deg);
+  animation: babyArmWave 1.2s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes babyArmWave {
+  0%   { transform: rotate(15deg); }
+  100% { transform: rotate(35deg); }
+}
+
+.baby-hand {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #f5d0a9;
+  border-radius: 50%;
+  bottom: -3px;
+  left: -1px;
+}
+
+.baby-leg {
+  position: absolute;
+  width: 12px;
+  height: 22px;
+  background: #87ceeb;
+  border-radius: 8px;
+  bottom: 18px;
+  z-index: 0;
+}
+.baby-leg-left { left: 30px; }
+.baby-leg-right { right: 30px; }
+
+.baby-foot {
+  position: absolute;
+  width: 14px;
+  height: 10px;
+  background: #f5d0a9;
+  border-radius: 50%;
+  bottom: 14px;
+  z-index: 0;
+}
+.baby-foot-left { left: 29px; }
+.baby-foot-right { right: 29px; }
+
+.baby-bubble {
+  position: absolute;
+  top: -12px;
+  right: -20px;
+  background: white;
+  border: 2px solid #87ceeb;
+  border-radius: 15px;
+  padding: 4px 10px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #45b7d1;
+  z-index: 10;
+  animation: bubblePop 2s ease-in-out infinite alternate;
+  white-space: nowrap;
+}
+.baby-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  left: 12px;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #87ceeb;
+}
+
 /* Responsive: stack on small screens */
 @media (max-width: 500px) {
   .columns { flex-direction: column; gap: 40px; }
@@ -622,6 +842,33 @@ hr {
       <div class="girl-leg girl-leg-right"></div>
       <div class="girl-shoe girl-shoe-left"></div>
       <div class="girl-shoe girl-shoe-right"></div>
+    </div>
+  </div>
+
+  <!-- Middle: Baby (Hamza) -->
+  <div class="column baby-column">
+    <div class="baby-label">Hamza</div>
+    <div class="baby">
+      <div class="baby-bubble">Goo!</div>
+      <div class="baby-hair"></div>
+      <div class="baby-head">
+        <div class="baby-eye baby-eye-left"></div>
+        <div class="baby-eye baby-eye-right"></div>
+        <div class="baby-mouth"></div>
+        <div class="baby-cheek baby-cheek-left"></div>
+        <div class="baby-cheek baby-cheek-right"></div>
+      </div>
+      <div class="baby-onesie"></div>
+      <div class="baby-arm baby-arm-left">
+        <div class="baby-hand"></div>
+      </div>
+      <div class="baby-arm baby-arm-right">
+        <div class="baby-hand"></div>
+      </div>
+      <div class="baby-leg baby-leg-left"></div>
+      <div class="baby-leg baby-leg-right"></div>
+      <div class="baby-foot baby-foot-left"></div>
+      <div class="baby-foot baby-foot-right"></div>
     </div>
   </div>
 
