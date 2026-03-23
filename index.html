@@ -1015,12 +1015,28 @@ document.querySelector('.baby').addEventListener('click', function() {
   synth.speak(utter);
 });
 
+function playBark() {
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  function bark(startTime) {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(600, startTime);
+    osc.frequency.exponentialRampToValueAtTime(300, startTime + 0.08);
+    osc.frequency.exponentialRampToValueAtTime(150, startTime + 0.15);
+    gain.gain.setValueAtTime(0.4, startTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, startTime + 0.18);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(startTime);
+    osc.stop(startTime + 0.2);
+  }
+  bark(ctx.currentTime);
+  bark(ctx.currentTime + 0.3);
+}
+
 document.querySelector('.puppy').addEventListener('click', function() {
-  synth.cancel();
-  const utter = new SpeechSynthesisUtterance('woof woof');
-  utter.rate = 1.0;
-  utter.pitch = 0.8;
-  synth.speak(utter);
+  playBark();
 });
 
 // Individual letter buttons
